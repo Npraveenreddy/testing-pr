@@ -17,10 +17,10 @@ jobs:
     container:
       image: openjdk:8-jdk-slim
     steps:
-      - name: Echo
+      - name: Echo 
         
         uses: actions/checkout@v1
-      - run: echo "hello"
+      - run: echo "hello" 
       
   testing:
     needs: build
