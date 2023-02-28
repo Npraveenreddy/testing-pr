@@ -12,6 +12,7 @@ jobs:
   build_push:  
     name: Run Web App using 
     runs-on: ubuntu-latest
+    environment: test
     if: (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/pr' || github.ref == 'refs/heads/test')
     
     container:
