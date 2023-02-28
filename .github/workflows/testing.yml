@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v1
       - run: echo "hello"
 
-  testing_push:
+  testing_push: 
     needs: build_push
     runs-on: ubuntu-latest
     if: (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'  || github.ref == 'refs/heads/pr' || github.ref == 'refs/heads/test')
