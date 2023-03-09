@@ -26,7 +26,7 @@ jobs:
   testing_push: 
     needs: build_push
     runs-on: ubuntu-latest
-    if: (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'  || github.ref == 'refs/heads/pr' || github.ref == 'refs/heads/test')
+    # if: (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'  || github.ref == 'refs/heads/pr' || github.ref == 'refs/heads/test')
 
     container:
       image: openjdk:8-jdk-slim
