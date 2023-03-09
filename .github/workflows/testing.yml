@@ -1,13 +1,14 @@
 name: Deploy 
-on: 
-  
+on:
   push:
-    branches: test
+    branches:
+      - test
   
   workflow_dispatch:   
 
   env:
   CURRENT_BRANCH: ${{ github.ref }}
+  
 jobs:  
   build_push:  
     runs-on: ubuntu-latest  
