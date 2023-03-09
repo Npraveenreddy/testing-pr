@@ -14,6 +14,7 @@ jobs:
       image: openjdk:8-jdk-slim 
     steps:
       - uses: actions/checkout@v1
-      - run: echo "hello"
+      - run: apt update -y
+      - run: apt install git -y
       - run: git clone -b $CURRENT_BRANCH https://github.com/Npraveenreddy/front-end2.git
       - run: ls -lrt
