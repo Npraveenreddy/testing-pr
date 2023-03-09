@@ -1,9 +1,10 @@
 name: My Workflow
 
 on:
-  # push:
-  #   branches:
-  #     - test
+  push:
+    branches:
+      - test
+      - pr
   pull_request:
     branches:
       - test
