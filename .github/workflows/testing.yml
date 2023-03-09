@@ -10,7 +10,7 @@ jobs:
     container:
       image: openjdk:8-jdk-slim 
     env:
-      BRANCH_NAME: ${{ github.ref }}
+      BRANCH_NAME: $(git rev-parse --abbrev-ref HEAD)
     steps:
       - uses: actions/checkout@v1
       - run: echo $BRANCH_NAME
