@@ -1,18 +1,22 @@
 name: My Workflow
-on: [push, pull_request]
+
+on:
+  push
+  pull_request
 
 jobs:
- get-pr-number:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v2
-    - name: Get PR number
-      id: action
-      uses: kamatama41/get-pr-number-action@v0
-      with:
-        github_token: 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
-        - name: Show the number
-          run: echo "PR number is ${{ steps.action.outputs.number }}"
+  get-pr-number:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get PR number
+        id: action
+        uses: kamatama41/get-pr-number-action@v0
+        with:
+          github_token: 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
+      - name: Show the number
+        run: echo "PR number is ${{ steps.action.outputs.number }}"
+
 
 # on:
 #   push:
