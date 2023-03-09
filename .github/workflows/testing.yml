@@ -12,7 +12,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Print pull request number
-        run: echo "Pull Request number is ${{ github.event.number }}"
+         run: echo "hi"
+        # run: echo "Pull Request number is ${{ github.event.number }}"
 
 # on:
 #   push:
