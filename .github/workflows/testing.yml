@@ -2,19 +2,18 @@ name: Deploy
 on:
   push:
     branches:
-      - test 
-
-env:
-  CURRENT_BRANCH: ${{ github.ref }}
+      - test
 
 jobs:  
   build_push:  
     runs-on: ubuntu-latest  
     container:
       image: openjdk:8-jdk-slim 
+    env:
+      BRANCH_NAME: ${{ github.ref }}
     steps:
       - uses: actions/checkout@v1
       - run: apt update -y
       - run: apt install git -y
-      - run: git clone --branch test https://github.com/Npraveenreddy/front-end2.git
+      - run: git clone --branch $BRANCH_NAME https://github.com/Npraveenreddy/front-end2.git
       - run: ls -lrt
