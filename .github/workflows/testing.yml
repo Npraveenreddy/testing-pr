@@ -2,27 +2,19 @@ name: Deploy
 on: 
   
   push:
-    branches: [pr,test] 
-  # pull_request:
-  #   branches: [pr, test ]  
+    branches: test
+  
   workflow_dispatch:   
-  #schedule:    
-   # - cron: "*/5 * * * *"
+
   env:
   CURRENT_BRANCH: ${{ github.ref }}
 jobs:  
   build_push:  
-    name: Run Web App using 
-    runs-on: ubuntu-latest
-    environment: test
-    # if: (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/pr' || github.ref == 'refs/heads/test')
-    
+    runs-on: ubuntu-latest  
     container:
       image: openjdk:8-jdk-slim 
     steps:
-      - name: Echo 
-        
-        uses: actions/checkout@v1
+      - uses: actions/checkout@v1
       - run: echo "hello"
       - run: git clone -b $CURRENT_BRANCH https://github.com/Npraveenreddy/front-end2.git
       - run: ls -lrt
