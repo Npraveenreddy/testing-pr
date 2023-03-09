@@ -1,23 +1,47 @@
-name: Deploy 
+name: My Workflow
+
 on:
   push:
     branches:
       - test
 
-jobs:  
-  build_push:  
-    runs-on: ubuntu-latest  
-    container:
-      image: openjdk:8-jdk-slim 
-    # env:
-    #   BRANCH_NAME: ${{ github.ref }}
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - run: apt update -y
-      - run: apt install git -y
-      - run: BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
-      - run: echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
-      - run: echo $BRANCH_NAME
+      - uses: actions/checkout@v2
+      - name: Set branch name
+        run: echo "BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
+      - name: Print branch name
+        run: echo $BRANCH_NAME
+
+
+
+
+
+
+
+
+# name: Deploy 
+# on:
+#   push:
+#     branches:
+#       - test
+
+# jobs:  
+#   build_push:  
+#     runs-on: ubuntu-latest  
+#     container:
+#       image: openjdk:8-jdk-slim 
+#     # env:
+#     #   BRANCH_NAME: ${{ github.ref }}
+#     steps:
+#       - uses: actions/checkout@v1
+#       - run: apt update -y
+#       - run: apt install git -y
+#       - run: BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+#       - run: echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+#       - run: echo $BRANCH_NAME
       
-      # - run: git clone --branch $BRANCH_NAME https://github.com/Npraveenreddy/front-end2.git
-      # - run: ls -lrt
+#       # - run: git clone --branch $BRANCH_NAME https://github.com/Npraveenreddy/front-end2.git
+#       # - run: ls -lrt
