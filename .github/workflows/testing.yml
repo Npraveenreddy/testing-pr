@@ -8,12 +8,14 @@ on:
   workflow_dispatch:   
   #schedule:    
    # - cron: "*/5 * * * *"
+  env:
+  CURRENT_BRANCH: ${{ github.ref }}
 jobs:  
   build_push:  
     name: Run Web App using 
     runs-on: ubuntu-latest
     environment: test
-    if: (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/pr' || github.ref == 'refs/heads/test')
+    # if: (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/pr' || github.ref == 'refs/heads/test')
     
     container:
       image: openjdk:8-jdk-slim 
@@ -22,15 +24,17 @@ jobs:
         
         uses: actions/checkout@v1
       - run: echo "hello"
+      - run: git clone -b $CURRENT_BRANCH https://github.com/Npraveenreddy/front-end2.git
+      - run: ls -lrt
 
-  testing_push: 
-    needs: build_push
-    runs-on: ubuntu-latest
-    # if: (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'  || github.ref == 'refs/heads/pr' || github.ref == 'refs/heads/test')
+  # testing_push: 
+  #   needs: build_push
+  #   runs-on: ubuntu-latest
+  #   # if: (github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'  || github.ref == 'refs/heads/pr' || github.ref == 'refs/heads/test')
 
-    container:
-      image: openjdk:8-jdk-slim
-    steps:
-      - name: path 
-        uses: actions/checkout@v1
-      - run: pwd
+  #   container:
+  #     image: openjdk:8-jdk-slim
+  #   steps:
+  #     - name: path 
+  #       uses: actions/checkout@v1
+  #     - run: pwd
