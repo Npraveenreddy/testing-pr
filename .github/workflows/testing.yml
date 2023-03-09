@@ -1,10 +1,10 @@
 name: My Workflow
 
 on:
-  push:
-    branches:
-      - test
-      - pr
+  # push:
+  #   branches:
+  #     - test
+  #     - pr
   pull_request:
     branches:
       - test
@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Print pull request number
         run: echo "Pull Request number is ${{ github.event.pull_request.number }}"
-        
+
 # on:
 #   push:
 #     branches:
