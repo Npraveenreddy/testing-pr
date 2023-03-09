@@ -13,10 +13,8 @@ jobs:
     container:
       image: openjdk:8-jdk-slim 
     steps:
-    env:
-      CURRENT_BRANCH: ${{ github.ref }}
       - uses: actions/checkout@v1
       - run: apt update -y
       - run: apt install git -y
-      - run: git clone --branch $CURRENT_BRANCH https://github.com/Npraveenreddy/front-end2.git
+      - run: git clone --branch test https://github.com/Npraveenreddy/front-end2.git
       - run: ls -lrt
