@@ -14,7 +14,7 @@ jobs:
       image: openjdk:8-jdk-slim 
     steps:
     env:
-    CURRENT_BRANCH: ${{ github.ref }}
+      CURRENT_BRANCH: ${{ github.ref }}
       - uses: actions/checkout@v1
       - run: apt update -y
       - run: apt install git -y
