@@ -15,7 +15,7 @@ jobs:
       - name: Print branch name
         run: |
           echo $BRANCH_NAME
-          git clone --branch $BRANCH_NAME https://github.com/Npraveenreddy/front-end2.git
+          git clone --branch $BRANCH_NAME git@github.com:Npraveenreddy/testing-pr.git
           ls -lrt
 
 
