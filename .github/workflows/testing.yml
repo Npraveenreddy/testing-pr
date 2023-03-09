@@ -13,9 +13,10 @@ jobs:
     #   BRANCH_NAME: ${{ github.ref }}
     steps:
       - uses: actions/checkout@v1
+      - run: apt update -y
+      - run: apt install git -y
       - run: BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
       - run: echo $BRANCH_NAME
-      # - run: apt update -y
-      # - run: apt install git -y
+      
       # - run: git clone --branch $BRANCH_NAME https://github.com/Npraveenreddy/front-end2.git
       # - run: ls -lrt
