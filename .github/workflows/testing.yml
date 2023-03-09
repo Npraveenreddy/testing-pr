@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest  
     container:
       image: openjdk:8-jdk-slim 
+  env:
+    CURRENT_BRANCH: ${{ github.ref }}
     steps:
       - uses: actions/checkout@v1
       - run: apt update -y
